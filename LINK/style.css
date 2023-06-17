@@ -1,0 +1,142 @@
+html {
+    height: 100%;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #a7fffb;
+  }
+  
+  body {
+    font-family: "Google Sans", monospace;
+    min-height: 100vh;
+    margin: 0;
+    background: white;
+  }
+  
+  h1,
+  h2 {
+    position: relative;
+    cursor: default;
+  }
+  
+  h1 {
+    font-size: 2em;
+    width: fit-content;
+    font-weight: bold;
+    margin-top: 0;
+    margin-block-end: 0.3em;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+    width: 190px;
+    padding-bottom: 2px;
+    padding-top: 1px;
+    margin-block-end: 0.6em;
+  }
+  
+  h1::before {
+    content: "://";
+    margin-right: 0px;
+  }
+  
+  #content {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cyan-back {
+    background: #00FFFF;
+  }
+  
+  .cyan-text {
+    color: #00FFFF;
+  }
+  
+  .pink-back {
+    background: #FA8CFF;
+  }
+  
+  .pink-text {
+    color: #FA8CFF;
+  }
+  
+  .yellow-back {
+    background: #FFEE00;
+  }
+  
+  .yellow-text {
+    color: #FFEE00;
+  }
+  
+  .elephant-letter.colored-back {
+    padding-bottom: 3px;
+  }
+  
+  .elephant-letter {
+    padding-bottom: 2px;
+    display: inline-block;
+    line-height: 1.1em;
+  }
+  
+  .big-letter {
+    /* font-size: 1.1em; */
+    padding: 0 2px;
+    margin-right: 3px;
+    font-weight: 500;
+    display: inline-block;
+    line-height: 1.0em;
+  }
+  
+  .big-letter.colored-back {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    margin-top: 14px;
+  }
+  
+  a {
+    text-decoration: none !important;
+    color: black;
+  }
+  
+  a:hover {
+    color: #777;
+  }
+  
+  ul {
+    padding-inline-start: 0;
+    font-size: 1.15em;
+  }
+  
+  li {
+    list-style: none;
+    padding: 4px 0;
+  }
+  
+  li:first-child {
+    padding-top: 0;
+  }
+  
+  li:last-child {
+    padding-bottom: 0;
+  }
+  
+  section {
+    width: fit-content;
+    color: black;
+    padding: 20px;
+    background: white;
+    animation: fadein 3s;
+    margin: 10px auto;
+  }
+  
+  .at {
+    margin: 0 5px;
+  }
