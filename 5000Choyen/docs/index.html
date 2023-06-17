@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <title>5000兆円ジェネレーター by Tiro0118</title>
+    <style type="text/css">
+        @font-face {
+            font-family: "notobk";
+            src: url("res/notobk-subset.otf") format("opentype");
+        }
+
+        @font-face {
+            font-family: "notoserifbk";
+            src: url("res/notoserifbk-subset.otf") format("opentype");
+        }
+
+        div {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        label {
+            display: inline-block;
+            color: rgb(110, 84, 255);
+            background-color: rgb(255, 255, 255);
+            padding: 3px 10px;
+        }
+
+        .text-type {
+            /* display: none; */
+        }
+
+        .text-type input[type="radio"]:checked + label {
+            color: rgb(0, 0, 0) !important;
+            background-color: rgb(70, 181, 255) !important;
+        }
+
+        .background-color input[type="radio"]:checked + label {
+            color: rgb(0, 0, 0);
+            background-color: rgb(115, 255, 110);
+        }
+
+        .flex{
+            width: 200px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        );
+        }
+        .flex > *{
+            width: 50%;
+            padding: 2.5%;
+            margin-top: 0;
+            background: #ffffff;
+            text-align: center;
+        }
+        .flex > *{
+            border: 1px solid;
+        }
+    </style>
+    <script src="src/top_text.js"></script>
+    <script src="src/bottom_text.js"></script>
+    <script src="src/drawer.js"></script>
+    <script src="src/index.js"></script>
+    <script type="text/javascript">
+        window.addEventListener('load', function() {
+            drawer.lang = "ja";
+        })
+    </script>
+</head>
+
+<body>
+<h1><font color="#4169e1">5000兆円ジェネレーター</font></h1>
+<div class="flex">
+
+</div>
+<div>
+    <p>
+                <span>
+                    <!-- eslint-disable -->
+                    5000兆円風の画像を生成するツールです。<font color="blue">" 欲しい! "</font> も生成できます。
+                </span>
+    </p>
+
+    <hr />
+</div>
+<div>
+    <canvas id="canvas" width="1500px" height="290px"></canvas>
+</div>
+<div>
+    <canvas id="canvas2" width="1500px" height="290px" style="display: none;"></canvas>
+</div>
+<div class="text-type">
+    <font color="blue">`欲しい!`</font> の描画に
+    <input id="bar1" type="radio" name="text-type" value="image" />
+    <label for="bar1">元ネタの画像を使う</label>
+    <input id="bar2" type="radio" name="text-type" value="text" checked />
+    <label for="bar2">文字を生成する</label>
+</div>
+<div class="background-color">
+    画像を保存するとき背景色を
+    <input id="bar3" type="radio" name="background-color" value="transparent" />
+    <label for="bar3">透明にする</label>
+    <input id="bar4" type="radio" name="background-color" value="white" checked />
+    <label for="bar4">白にする</label>
+</div>
+<div>
+    <span id="labelTop">赤色の文字</span>
+    <input type="text" id="textboxTop" size="50" value="" spellcheck="false" oninput="onChangeState();" />
+    <br />
+    <span id="labelBottom">銀色の文字</span>
+    <input type="text" id="textboxBottom" size="50" value="" spellcheck="false" oninput="onChangeState();" />
+</div>
+<div>
+    <button type="button" onclick="drawer.saveImage();">画像を保存する</button>
+    <button type="button" onclick="drawer.openImage();">画像を新しいタブで開く</button>
+</div>
+<div>
+    <hr />
+
+    <p>
+        `欲しい!` はドラッグできます。
+        <br />
+        <video autoplay loop muted style="max-width: 600px;">
+            <source src="res/demo.mp4" type="video/mp4" />
+            <source src="res/demo.webm" type="video/webm" />
+        </video>
+    </p>
+    <hr />
+</div>
+</div>
+</body>
+</html>
