@@ -102,5 +102,19 @@
     </div>
   
   
-  
+      <script>
+        window.addEventListener('load', function() {
+            // a.htmlを読み込む
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                // レスポンスの中身を取得
+                document.getElementById('usage').innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "a.html", true);
+            xhttp.send();
+        });
+    </script>
+
   </body></html>
