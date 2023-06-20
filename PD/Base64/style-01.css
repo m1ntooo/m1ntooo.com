@@ -1,0 +1,29 @@
+
+.light-theme{
+  --back-colors:  #f0e1ff;
+  --form-text-colors:  #000000;
+}
+.dark-theme {
+  --form-back-colors:  #5c5c5c;
+  --form-text-colors:  #e6e6e6;
+}
+/* <form set> */
+textarea{
+  width:80vw;
+  height:100px;
+  color:var(--form-text-colors);
+  background-color:var(--form-back-colors);
+  border: 2px solid #050500;
+  border-radius:0.67em;
+  padding: 0.5em;
+}
+button{
+  font-size:100%;
+  width:39vw;
+  border: 2px solid #00028a;
+  border-radius:0.67em;
+  padding: 0.5em;
+  color:var(--text-colors);
+  background-color:var(--header-background-colors);
+}
+/* </form set> */

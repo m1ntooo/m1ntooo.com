@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drawing Canvas</title>
+    <style>
+      #canvas {
+        border: 1px solid black;
+      }
+      #color-picker {
+        display: inline-block;
+      }
+      #brush-size {
+        display: inline-block;
+      }
+      #clear-canvas {
+        display: inline-block;
+      }
+      #canvas {
+        width: 100%;
+        height: auto;
+      }
+      html {
+        height: 100vh;
+      }
+      .center {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <div class="center">
+      <label for="color-picker">Color:</label>
+      <input type="color" id="color-picker" />
+      <label for="brush-size">Brush size:</label>
+      <input type="range" id="brush-size" min="1" max="50" value="10" />
+      <button id="clear-canvas">Clear Canvas</button>
+    </div>
+    <script>
+      // Get canvas element and set its dimensions
+      var canvas = document.getElementById("canvas");
+      canvas.width = window.innerWidth;
+      canvas.height =
+        window.innerHeight -
+        document.querySelector(".center").clientHeight * 1.4;
+      window.addEventListener("resize", function () {
+        canvas.width = window.innerWidth;
+        canvas.height =
+          window.innerHeight -
+          document.querySelector(".center").clientHeight * 1.4;
+      });
+
+      // Get canvas 2D context
+      var ctx = canvas.getContext("2d");
+
+      // Set default brush properties
+      ctx.lineWidth = 10;
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.strokeStyle = "black";
+
+      // Get color picker and brush size elements
+      var colorPicker = document.getElementById("color-picker");
+      var brushSize = document.getElementById("brush-size");
+
+      // Get clear canvas button element
+      var clearCanvas = document.getElementById("clear-canvas");
+
+      // Event listeners for color picker and brush size
+      colorPicker.addEventListener("input", function () {
+        ctx.strokeStyle = colorPicker.value;
+      });
+      brushSize.addEventListener("input", function () {
+        ctx.lineWidth = brushSize.value;
+      });
+
+      // Event listener for clear canvas button
+      clearCanvas.addEventListener("click", function () {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      });
+
+      // Event listeners for mouse events on the canvas
+      var isDrawing = false;
+      canvas.addEventListener("mousedown", function (e) {
+        isDrawing = true;
+        ctx.beginPath();
+        ctx.moveTo(e.clientX, e.clientY);
+      });
+      canvas.addEventListener("mousemove", function (e) {
+        if (isDrawing) {
+          ctx.lineTo(e.clientX, e.clientY);
+          ctx.stroke();
+        }
+      });
+      canvas.addEventListener("mouseup", function () {
+        isDrawing = false;
+      });
+      canvas.addEventListener("mouseleave", function () {
+        isDrawing = false;
+      });
+      //Event listeners for touch events on mobile devices
+      canvas.addEventListener("touchstart", function (e) {
+        isDrawing = true;
+        ctx.beginPath();
+        ctx.moveTo(e.touches[0].clientX, e.touches[0].clientY);
+      });
+      canvas.addEventListener("touchmove", function (e) {
+        if (isDrawing) {
+          ctx.lineTo(e.touches[0].clientX, e.touches[0].clientY);
+          ctx.stroke();
+        }
+      });
+      canvas.addEventListener("touchend", function () {
+        isDrawing = false;
+      });
+    </script>
+  </body>
+</html>
